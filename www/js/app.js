@@ -41,6 +41,11 @@ angular.module('bollywood', ['ionic', 'bollywood.controllers', 'bollywood.servic
       templateUrl: 'templates/movies.html',
       controller: 'MoviesCtrl'
     })
+    .state('movieDetails', {
+      url: '/movieDetails/:movieId',
+      templateUrl: 'templates/movieDetails.html',
+      controller: 'MovieDetailsCtrl'
+    })
 /*
     .state('employee', {
       url: '/employees/:employeeId',

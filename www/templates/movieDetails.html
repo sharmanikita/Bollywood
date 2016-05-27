@@ -1,0 +1,26 @@
+<ion-view title="Movies">
+  <ion-content class="card-background-page">
+    <div class="list card">
+
+      <div class="item item-avatar">
+        <img src="{{movie.PosterPath}}">
+        <h2>{{movie.Title}}</h2>
+        <p>Release date: {{movie.ReleaseDate}}</p>
+      </div>
+
+      <div class="item item-body">
+        <img class="full-image" src="{{movie.PosterPath}}">
+        <p>
+          <a href="#" class="subdued">Genre: {{movie.Genre}}</a>
+          <a href="#" class="subdued">Rating: {{movie.Rating}}</a>
+        </p>
+        <p>
+          {{movie.Description}}
+        </p>
+
+      </div>
+
+    </div>
+  </ion-content>
+
+</ion-view>

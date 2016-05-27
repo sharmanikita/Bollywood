@@ -9,24 +9,25 @@ angular.module('bollywood.controllers', [])
 
     }
 
+
     $scope.heroes = [{
-      id: '1',
+      id: 'b396c2fd',
       name: 'Salman Khan'
     },
       {
-        id: '2',
+        id: 'bdd53ba7',
         name: 'Shahrukh Khan'
       },
       {
-        id: '3',
+        id: '0dcc2bbb',
         name: 'Amir Khan'
       },
       {
-        id: '4',
+        id: 'e97ded72',
         name: 'Ranbir Kapoor'
       },
       {
-        id: '5',
+        id: '9999',
         name: 'Surprise Me...'
       }];
 
@@ -38,12 +39,23 @@ angular.module('bollywood.controllers', [])
 
 
   })
+  .controller('MoviesCtrl', function ($scope, $stateParams, Movies, RandomMovies) {
+    if ($stateParams.heroId === '9999') {
+      RandomMovies.query({ year: '2016' }).$promise.then(function(data) {
+        $scope.movies = data;
+        $scope.movie = data[Math.floor(Math.random() * data.length)];
 
-  .controller('EmployeeDetailCtrl', function($scope, $stateParams, Movies) {
-    console.log('details');
-    $scope.employee = Employees.get({employeeId: $stateParams.employeeId});
+      });
+    } else {
+      Movies.query({ heroId: $stateParams.heroId }).$promise.then(function(data) {
+        $scope.movies = data;
+        $scope.movie = data[Math.floor(Math.random() * data.length)];
+      });
+    }
+
   })
-
-  .controller('MoviesCtrl', function ($scope, $stateParams, Movies) {
-    $scope.movie = Movies.getMoviesByHero($stateParams.heroId);
-  });
+  .controller('MovieDetailsCtrl', function($scope, $stateParams, Movie) {
+    Movie.get({movieId: $stateParams.movieId}).$promise.then(function(data) {
+      $scope.movie = data;
+    });
+  })
