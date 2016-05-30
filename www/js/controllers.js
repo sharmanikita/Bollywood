@@ -39,23 +39,21 @@ angular.module('bollywood.controllers', [])
 
 
   })
-  .controller('MoviesCtrl', function ($scope, $stateParams, Movies, RandomMovies) {
-    if ($stateParams.heroId === '9999') {
-      RandomMovies.query({ year: '2016' }).$promise.then(function(data) {
-        $scope.movies = data;
-        $scope.movie = data[Math.floor(Math.random() * data.length)];
-
-      });
-    } else {
-      Movies.query({ heroId: $stateParams.heroId }).$promise.then(function(data) {
-        $scope.movies = data;
-        $scope.movie = data[Math.floor(Math.random() * data.length)];
-      });
-    }
-
+  .controller('MoviesCtrl', function ($scope, $stateParams, Movies) {
+	  var showMovie = function() {
+		  if ($stateParams.heroId === '9999') {
+			   Movies.getRandomMovie();
+		  } else {
+			  Movies.getMovieByHero($stateParams.heroId);
+		  }
+	  }
+	  
+	  showMovie();
+	  
+	  
+	  $scope.getMoreMovie = function() {
+		  showMovie();
+	  }
   })
-  .controller('MovieDetailsCtrl', function($scope, $stateParams, Movie) {
-    Movie.get({movieId: $stateParams.movieId}).$promise.then(function(data) {
-      $scope.movie = data;
-    });
+  .controller('MovieDetailsCtrl', function($scope) {
   })

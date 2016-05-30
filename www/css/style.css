@@ -51,3 +51,19 @@
   width: 100%;
   color: #fff;
 }
+
+.background, .background .pane, .background .item, .background .item-complex .item-content{
+   color: #ef473a;
+}
+
+.bar-header {
+	background-color: #ef473a !important;
+}
+
+.bar.bar-stable .title, .bar-stable .button.button-clear {
+	color: #fff !important;
+}
+
+.moreBtn {
+	margin-left: 10px;
+}

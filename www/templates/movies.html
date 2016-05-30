@@ -1,4 +1,4 @@
-<ion-view title="Movies">
+<ion-view title="Movies"  class="background">
   <ion-content class="card-background-page">
 
     <div class="list">
@@ -7,6 +7,10 @@
         <h2>{{movie.Title}}</h2>
       </a>
     </div>
+    
+    <div>
+    	<button ng-click="getMoreMovie()" class="button button-assertive moreBtn">I want more...</button>
+    </div>
     </ion-content>
-
+	
 </ion-view>
