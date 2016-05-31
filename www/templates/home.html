@@ -8,13 +8,20 @@
     </label>
   </div>
 
-  <ion-content class="has-header has-subheader">
-    <ion-list>
-      <ion-item ng-repeat="hero in heroes | filter: searchKey" type="item-text-wrap" class="item-avatar"
-                href="#/movies/{{hero.id}}">
-        {{hero.name}}
-      </ion-item>
-    </ion-list>
+  <ion-content class="card-background-page">
+   <!-- <ion-list>-->
+      <!--<ion-item ng-repeat="hero in heroes | filter: searchKey" type="item-text-wrap" class="item-avatar"
+                href="#/movies/{{hero.id}}">-->
+        <div class="list" ng-repeat="hero in heroes | filter: searchKey" type="item-text-wrap" class="item-avatar"
+             href="#/movies/{{hero.id}}">
+          <a class="item item-thumbnail-left" href="#/movies/{{hero.id}}">
+            <img src="{{hero.pic}}">
+            <h2>{{hero.name}}</h2>
+          </a>
+        </div>
+
+    <!--  </ion-item>-->
+    <!--</ion-list>-->
   </ion-content>
 
 </ion-view>
