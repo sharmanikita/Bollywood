@@ -6,8 +6,8 @@ User can choose a hero also to pick movie.
 
 # Run locally
 
-npm install -g ionic cordova
-git clone git@github.com:sharmanikita/Bollywood.git
-cd Bollywood
-ionic platform add android
-ionic emulate android
+* npm install -g ionic cordova
+* git clone git@github.com:sharmanikita/Bollywood.git
+* cd Bollywood
+* ionic platform add android
+* ionic emulate android
